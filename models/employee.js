@@ -1,40 +1,46 @@
 module.exports = (sequelize, DataTypes) => {
-  const employees = sequelize.define('employees', {
-    // name, employee code, admin permissions, hire date, accrued time, position, salary/hourly, picture link
-
-    name: {
+  const employee = sequelize.define('employee', {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     code: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    permission: {
+    working_status: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-    hireDate: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    accruedTime: {
-      type: DataTypes.DECIMAL(3, 2),
     },
     position: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    pay: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
+    hire_date: {
+      type: DataTypes.DATE,
     },
-    photo: {
+    vacation_time: {
+      type: DataTypes.DECIMAL(10, 2),
+      defaultValue: 0.0,
+    },
+    sick_time: {
+      type: DataTypes.DECIMAL(10, 2),
+      defaultValue: 0.0,
+    },
+    picture_fp: {
       type: DataTypes.STRING,
     },
-
+    pay_type: {
+      type: DataTypes.STRING,
+    },
   });
 
-  return employees;
+  return employee;
 };
