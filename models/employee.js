@@ -24,20 +24,21 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         hire_date: {
-            type: DataTypes.DATE,
-            allowNull: false
+            type: DataTypes.DATE
         },
         vacation_time: {
-            type: DataTypes.DECIMAL(10,2)
+            type: DataTypes.DECIMAL(10,2),
+            defaultValue: 0.0
         },
         sick_time: {
-            type: DataTypes.DECIMAL(10,2)
+            type: DataTypes.DECIMAL(10,2),
+            defaultValue: 0.0
         },
         picture_fp: {
             type: DataTypes.STRING
         },
         pay_type: {
-            type:DataTypes.INTEGER
+            type:DataTypes.STRING
         }
     });
 
