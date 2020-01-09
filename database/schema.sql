@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS `sample_db`;
-CREATE DATABASE `sample_db`;
+DROP DATABASE IF EXISTS `invengeon_time_system`;
+CREATE DATABASE `invengeon_time_system`;
