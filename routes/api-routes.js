@@ -8,6 +8,18 @@ router.get('/employees', (req, res) => {
         });
 });
 
+router.get('/employees/:id', (req, res) => {
+    const id = req.params.id;
+    db.Employee.findOne({
+        where: {
+            id: id
+        }
+    })
+    .then((employees) => {
+        res.json(employees);
+    });
+});
+
 router.post('/employees', (req, res) => {
     const employee = req.body;
     db.Employee.create(employee)
@@ -23,6 +35,19 @@ router.post('/employees', (req, res) => {
                 errors: err.errors
             });
         });
+});
+
+router.delete('/employees/:id', (req, res) => {
+    const id = req.params.id;
+    db.Employee.destroy({
+        where: {
+            id: id
+        }
+    }).then((response) => {
+        res.json({
+            success: true
+        });
+    });
 });
 
 module.exports = router;
