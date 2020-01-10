@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     time: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.TIME,
       allowNull: false,
     },
     week_num: {
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(2),
     },
     year: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
   });
