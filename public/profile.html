@@ -9,9 +9,24 @@
 </head>
 <body>
 <div id="wrapper" class="flex">
-<div id="sidebarContainer" class="flex-none w-2/12 bg-gray-600 items-center">
-    <p>sidebar</p>
-</div>
+    <div id="sidebarContainer" class="flex-none w-2/12 bg-gray-600 ">
+        <div id="sidebar" class="main items-center">
+          <div class=""><img class="w-full px-3 py-3" src="assets/images/Modern_Logo.png" alt="Logo"></div>
+          <ul id ="navLinks" class="flex flex-col">
+            <li class="flex-1 mr-2">
+              <a id="newEmplReg"class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded"
+                href="#">Register New Employee</a>
+            </li>
+            <li class="flex-1 mr-2">
+              <a id="lstWksHrsBtn"class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded"
+                href="#">Print Last Weeks Hours</a>
+            </li>
+            <li class="text-center flex-1">
+              <a class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded" href="#">Disabled Item</a>
+            </li>
+          </ul>
+        </div>
+    </div>
     <div id= "mainContainer" class="main w-8/12 bg-gray-300 flex-grow">
         <div class="flex mx-2 mt-2 mb-2">
           <div class="w-1/2">
