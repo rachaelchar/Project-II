@@ -13,6 +13,3 @@ module.exports = function generateQR() {
   });
 };
 
-// generateQR();
-
-// module.exports = ('./qr.js');
