@@ -5,40 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Employee Management System: Admin Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="assets/js/adminPage.js"></script>
 </head>
 
-<body class="bg-gray-600">
-    <div class="flex" id="wrapper">
-
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="assets/js/adminPage.js"></script>
-        <div id="sideBarContainer" class="flex-none w-2/12 bg-gray-600 items-center">
-            <div class="bg-gray-400 h-64 m-10">
-                <div> <img class="w-15 h-20" src="../public/assets/images/Modern Logo.png" alt="Invengeon Logo"></div>
-                <!-- <p class= "text-center p-15 text-4xl">Create employee badge</p> -->
-            </div>
+<body class="bg-gray-600 h-full">
+    <div class = "h-full" id="sideBarContainer" >
+        <div class="bg-gray-400 h-64 m-10">
+            <div> <img class="w-15 h-20" src="../public/assets/images/Modern Logo.png" alt="Invengeon Logo"></div>
+            <!-- <p class= "text-center p-15 text-4xl">Create employee badge</p> -->
         </div>
+    </div>
 
+    <!-- class="main w-8-12 bg-blue-500 flex-grow" -->
 
-        <!-- <div class = "bg-gray-400 h-64 mx-64"></div>
+    <div id="mainContainer">
+        <div class="flex mb-4">
+            <div class="w-1/2 bg-gray-400 h-48 m-4"></div>
+            <br>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                Button
+              </button>
+        </div>
         <div class="bg-gray-400">
             <img class="object-center sm:object-cover md:object-fill lg:object-none xl:object-scale-down ...">
-          </div> -->
-        <div id="mainContainer" class="main w-8-12 bg-blue-500 flex-grow">
-            <div class="flex mb-4">
-                <div class="w-1/2 bg-gray-400 h-48 m-4"></div>
-                <div class="w-1/2 bg-gray-500 h-48 m-4"></div>
-            </div>
-            <div class="bg-gray-400">
-                <img class="object-center sm:object-cover md:object-fill lg:object-none xl:object-scale-down ...">
 
-            </div>
         </div>
-
     </div>
+
+
+    <!-- <div class="flex" id="wrapper">
+
+        class="flex-none w-2/12 bg-gray-600 items-center"
+
+
+
+
+        <div class = "bg-gray-400 h-64 mx-64"></div>
+        <div class="bg-gray-400">
+            <img class="object-center sm:object-cover md:object-fill lg:object-none xl:object-scale-down ...">
+          </div>
+
+
+    </div> -->
     </div>
 </body>
 
