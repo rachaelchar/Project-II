@@ -1,6 +1,5 @@
 // QR code = INVE + 8 random digits
 
-
 const QRCode = require('qrcode');
 
 module.exports = function generateQR() {
@@ -15,3 +14,5 @@ module.exports = function generateQR() {
 };
 
 // generateQR();
+
+// module.exports = ('./qr.js');
