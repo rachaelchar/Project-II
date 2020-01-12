@@ -1,84 +1,79 @@
-let width = 320;
-let height = 0;
+//============ Location of Pic Frame and Button ===============
+const pDiv = $('#picDiv');
+const btnDiv = $('#btnDiv');
+let width = 640;
+//=============================================================
 
-const streaming = false;
+let height = 0;
 let video = null;
 let canvas = null;
 let photo = null;
 
-const capture = $('#capture');
-const beginvideo = $('#beginvideo');
+const streaming = false;
+const cameraDiv = $('<div class="camera"><video id="video"></video><div class="overlay-desc"><h1 id="countdown"></h1></div></div>');
+const canvasDiv = $('<canvas id="canvas"></canvas><div class="output"><img id="photo"></div>');
+const webcam = $('<button id="webcam" class="camBtns">Start Webcam</button>')
+const snapshot = $('<button id="snapshot" class="camBtns">Take Picture</button>')
+const savePic = $('<button id="saveBtn" >Submit Picture</button>')
 
-function takepicture() {
-  $('.pictureDiv').prepend($('<canvas id="canvas"></canvas><div class="output"><img id="photo"></div>'));
-
-  canvas = document.getElementById('canvas');
-  photo = document.getElementById('photo');
-
-  canvas.setAttribute('width', width);
-  canvas.setAttribute('height', height);
-
-
-
-  const context = canvas.getContext('2d');
-  if (width && height) {
-    canvas.width = width;
-    canvas.height = height;
-    context.drawImage(video, 0, 0, width, height);
-
-    const data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
-  } else {
-    clearphoto();
-  }
-}
-
-function startup() {
-  camera = $('<div class="camera">');
-  video = $('<video id="video">');
-  camera.append(video)
-  $('.pictureDiv').prepend(camera)
-  video = video[0]
+$(document).on("click", '#webcam', () => {
+  btnDiv.empty().append(snapshot);
+  $('#snapshot').prop('disabled', false);
+  pDiv.empty().prepend(cameraDiv);
+  video = $('#video')[0]
 
   navigator.mediaDevices.getUserMedia({ audio: false, video: true })
     .then(mediaStream => {
       video.srcObject = mediaStream;
       video.play();
-
-      
-      capture.click((ev) => {
-        takepicture();
-        stopCamera(mediaStream);
-        ev.preventDefault();
-      });
-
+      capture(mediaStream);
     })
-
-  function stopCamera(mediaStream) {
-    const tracks = mediaStream.getTracks()
-    tracks[0].stop()
-    camera.remove()
-  }
-
 
   video.addEventListener('canplay', () => {
     if (!streaming) {
       height = video.videoHeight / (video.videoWidth / width);
-
-      // eslint-disable-next-line no-restricted-globals
-      if (isNaN(height)) {
-        height = width / (4 / 3);
-      }
-
-      video.setAttribute('width', width);
-      video.setAttribute('height', height);
+      $('#video').attr({ width: width, height: height });
     }
   });
 
+})
+
+$(document).on("click", '#saveBtn', () => {
+  alert("picture saved (not really)")
+})
+
+function capture(mediaStream) {
+  $('#snapshot').on("click", () => {
+    $('#snapshot').prop('disabled', true);
+    var timeleft = 6;
+
+    var timer = setInterval(() => {
+      timeleft -= 1;
+      $('#countdown').text(timeleft);
+      if (timeleft <= 0) {
+        clearInterval(timer);
+        $('#countdown').text(" ")
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      pDiv.empty().prepend(canvasDiv);
+      $('#canvas').attr({ width: width, height: height });
+      const context = $('#canvas')[0].getContext('2d');
+
+      if (width && height) {
+        context.drawImage(video, 0, 0, width, height);
+        const data = $('#canvas')[0].toDataURL('image/png');
+        $('#photo').attr('src', data);
+      }
+
+      const tracks = mediaStream.getTracks()
+      tracks[0].stop()
+      cameraDiv.remove()
+      btnDiv.empty().append(webcam).append(savePic)
+    }, 6100);
+
+
+
+  });
 }
-
-
-
-beginvideo.click(() => {
-  startup();
-});
