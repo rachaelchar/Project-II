@@ -27,7 +27,7 @@
         <ul id="navLinks" class="flex flex-col">
           <li class="flex-1 mr-2">
             <a id="newEmplReg"
-              class="text-center block border border-blue-500 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
+              class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
               href="./adminPage.html">Register New Employee</a>
           </li>
           <li class="flex-1 mr-2">
@@ -43,25 +43,32 @@
     </div>
 
 
-    <div id="mainContainer" class="main w-8/12 bg-white flex-grow items-center px-10 py-10">
+    <div id="mainContainer" class="main w-8/12 bg-white flex-grow items-center justify-center mt-10 mr-20 ml-20 px-16 py-16 border border-black">
+
+      
+      
 
       <div id="currentTime" class="center-content">
 
       </div>
 
-      <form id="badScanForm" class="w-full max-w-sm">
-        <div class="border-b border-b-2 border-teal-500 py-2">
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Scan Badge QR Code">
+     
+
+      <form id="badScanForm" class="w-full flex justify-center ">
+        <div class=" py-2 px-12 w-full">
+          <input id="badgeID" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Scan Badge QR Code">
 
         </div>
       </form>
 
-      <div id="viewProfile" class=" py-3">
+      <div id="viewProfile" class=" justify-center flex py-3">
         <button id="viewProfileBtn"
-          class="bg-gray-800 hover:bg-gray-600 text-white font-bold py-2 px-4 border">
+          class="justify-center bg-gray-800 hover:bg-gray-600 text-white font-bold py-2 px-4 border">
           View Profile
         </button>
       </div>
+
+  
 
     </div>
 
