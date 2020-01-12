@@ -20,11 +20,15 @@
   },
   "homepage": "https://github.com/kylewhittemore/full-stack-sequelize#readme",
   "dependencies": {
+    "aws-sdk": "^2.601.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
+    "react": "^16.12.0",
+    "react-dropzone": "^10.2.1",
     "sequelize": "^5.21.3",
     "tailwindcss": "^1.1.4"
   },

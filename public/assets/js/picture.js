@@ -69,5 +69,18 @@ $(document).on('click', '#webcam', () => {
 });
 
 $(document).on('click', '#saveBtn', () => {
-  console.log('picture saved (not really)');
+  const canvas = document.getElementById('canvas');
+
+  canvas.toBlob((blob) => {
+    // const newImg = document.createElement('img');
+    // const url = URL.createObjectURL(blob);
+
+    // newImg.onload = () => {
+    //   URL.revokeObjectURL(url);
+    // };
+
+    // newImg.src = url;
+    // document.body.appendChild(newImg);
+    console.log(blob);
+  }, 'image/jpeg', 0.95);
 });
