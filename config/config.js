@@ -23,4 +23,9 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'mysql',
   },
+  aws: {
+    secretAccessKey: process.env.AWS_SAK,
+    accessKeyId: process.env.AWS_AKI,
+    region: process.env.AWS_R,
+  },
 };
