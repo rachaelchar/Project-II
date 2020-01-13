@@ -10,30 +10,29 @@
 </head>
 
 <body class="">
-  <nav class="flex items-center justify-between flex-wrap bg-black p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
+  <nav class="flex items-center bg-black p-6">
+    <div class="items-center flex-shrink-0 text-white mr-6">
+      <p class="self-center">Invengeon</p>
 
   </nav>
 
-  <div id="wrapper" class="flex">
+  <div id="wrapper" class="flex h-auto">
 
 
-    <div id="sidebarContainer" class="flex-none w-2/12 bg-gray-600 ">
+    <div id="sidebarContainer" class="flex-none w-2/12 border-r h-auto">
       <div id="sidebar" class="main items-center">
 
         <div class=""><img class="w-full px-3 py-3" src="assets/images/Modern_Logo.png" alt="Logo"></div>
 
-        <ul id ="navLinks" class="flex flex-col">
+        <ul id="navLinks" class="flex flex-col">
           <li class="flex-1 mr-2">
-            <a id="newEmplReg"class="text-center block border border-blue-500 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-              href="/register">Register New Employee</a>
+            <a id="newEmplReg"
+              class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+              href="./adminPage.html">Register New Employee</a>
           </li>
           <li class="flex-1 mr-2">
-            <a id="newEmplReg"class="text-center block border border-blue-500 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white"
-              href="/employees">View All Employees</a>
-          </li>
-          <li class="flex-1 mr-2">
-            <a id="lstWksHrsBtn"class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+            <a id="lstWksHrsBtn"
+              class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
               href="#">Print Last Weeks Hours</a>
           </li>
           <li class="text-center flex-1">
@@ -44,32 +43,38 @@
     </div>
 
 
-    <div id="mainContainer" class="main w-8/12 bg-white flex-grow content-center">
+    <div id="mainContainer" class="main w-8/12 bg-white flex-grow items-center justify-center mt-10 mr-20 ml-20 px-16 py-16 border border-black">
+
+      
+      
 
       <div id="currentTime" class="center-content">
-        <p class="text-center">4:20 pm</p>
+
       </div>
 
-      <form id="badScanForm" class="w-full max-w-sm">
-        <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
-          <input id="scanBadgeForm"
-            class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-            type="text" placeholder="Scan Badge" aria-label="Full name">
+     
+
+      <form id="badScanForm" class="w-full flex justify-center ">
+        <div class=" py-2 px-12 w-full">
+          <input id="badgeID" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Scan Badge QR Code">
 
         </div>
       </form>
 
-      <div id="viewProfile">
-        <button id="viewProfileBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+      <div id="viewProfile" class=" justify-center flex py-3">
+        <button id="viewProfileBtn"
+          class="justify-center bg-gray-800 hover:bg-gray-600 text-white font-bold py-2 px-4 border">
           View Profile
         </button>
       </div>
 
+  
+
     </div>
 
-    <div id="currentStatusAside" class="main w-2/12 bg-green-400 content-end flex-none">
-      <p>Current Status Aside</p>
-      <div id ="currentStatusList">
+    <div id="currentStatusAside" class="main w-2/12  content-end flex-none">
+      <!-- <p>Current Status Aside</p> -->
+      <div id="currentStatusList">
         <!-- ul placeholder -->
       </div>
 
@@ -81,6 +86,8 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/moment.js"></script>
+   
 
   </div>
 
