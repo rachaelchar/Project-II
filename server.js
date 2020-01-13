@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('./models');
 const routes = require('./routes');
+const generate = require('./qr.js');
 
 const app = express();
 
@@ -18,3 +19,5 @@ db.sequelize.sync().then(() => {
     console.log(`App listening on PORT ${PORT}`);
   });
 });
+
+generate();
