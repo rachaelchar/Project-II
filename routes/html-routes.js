@@ -16,9 +16,6 @@ router.get('/admin', (req, res) => {
 router.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/register.html'));
 });
-router.get('/employees', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/employees.html'));
-});
 
 
 // Place this route below all others to send he index.html file
