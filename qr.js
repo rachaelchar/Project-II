@@ -2,27 +2,29 @@
 
 const QRCode = require('qrcode');
 
+let numString = '';
+const numbers = '1234567890';
+
 function makeNumData(length) {
-  let result = '';
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  numbers.forEach(number){
-    result += numbers.charAt(Math.floor(Math.random() * numbers.length));
-
-  return result;
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < length; i++) {
+    numString += (numbers.charAt(Math.floor(Math.random() * numbers.length)));
   }
-  console.log(result);
 }
 
-console.log(makeNumData(8));
-
 module.exports = function generateQR() {
+  console.log(makeNumData(8));
+  console.log('numstring = ', numString);
   const segs = [
     { data: 'INVE', mode: 'alphanumeric' },
-    { data: '0123456', mode: 'numeric' },
+    { data: numString, mode: 'numeric' },
   ];
 
   QRCode.toString(segs, { type: 'terminal' }, (err, url) => {
     console.log('+++++++++++++++++++++++++++++++++++QR code url', url);
   });
+
+  const newEmployeeCode = `INVE${numString}`;
+  // New employee code will be saved to the database
+  console.log('newEmployeeCode =', newEmployeeCode);
 };
