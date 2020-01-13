@@ -2,7 +2,7 @@ const router = require('express').Router();
 const db = require('../models');
 
 router.get('/employees', (req, res) => {
-  db.Employee.findAll()
+  db.employee.findAll()
     .then((employees) => {
       res.json(employees);
     });
@@ -49,5 +49,6 @@ router.delete('/employees/:id', (req, res) => {
     });
   });
 });
+
 
 module.exports = router;

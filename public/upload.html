@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWS SDK for JavaScript - Sample Application</title>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
+</head>
+<body>
+  <input type="file" id="file-chooser" />
+  <button id="upload-button" style="display:none">Upload to S3</button>
+  <div id="results"></div>
+  <div id="fb-root"></div>
+  <script type="text/javascript">
+
+    var bucketName = 'employee-login';
+    AWS.config.region = 'us-east-2';
+
+    var fbUserId;
+    var bucket = new AWS.S3({
+      params: {
+        Bucket: bucketName
+      }
+    });
+    var fileChooser = document.getElementById('file-chooser');
+    var button = document.getElementById('upload-button');
+    var results = document.getElementById('results');
+    button.addEventListener('click', function () {
+      var file = fileChooser.files[0];
+      if (file) {
+        results.innerHTML = '';
+
+        //Object key will be facebook-USERID#/FILE_NAME
+        var objKey = 'sample';
+        var params = {
+          Key: objKey,
+          ContentType: file.type,
+          Body: file,
+          ACL: 'public-read'
+        };
+        bucket.putObject(params, function (err, data) {
+          if (err) {
+            results.innerHTML = 'ERROR: ' + err;
+          } else {
+            listObjs();
+          }
+        });
+      } else {
+        results.innerHTML = 'Nothing to upload.';
+      }
+    }, false);
+
+    function listObjs() {
+      var prefix = 'sample';
+      bucket.listObjects({ Prefix: prefix}, (err, data) => {
+        if (err) {
+          results.innerHTML = 'ERROR: ' + err;
+        } 
+        else {
+          var objKeys = "";
+          data.Contents.forEach((obj) => {
+            objKeys += obj.Key + "<br>";
+          });
+          results.innerHTML = objKeys;
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>

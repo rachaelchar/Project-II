@@ -1,0 +1,27 @@
+.camera {
+  position: relative;
+  display:inline-block;
+}
+#video, #photo {
+  border: 1px solid black;
+  width: 640px;
+  height:480px;
+}
+.overlay-desc {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  color: white;
+  font-family: 'Nobile', sans-serif;
+  font-size: 20vw;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#canvas {
+  display:none;
+}
