@@ -1,27 +1,29 @@
-$('#new-employee-form').on('submit', (event) => {
-  event.preventDefault();
-  const employee = {
-    first_name: $('#first_name').val(),
-    last_name: $('#last_name').val(),
-    admin: $('#admin').val(),
-    code: $('#code').val(),
-    working_status: $('#working_status').val(),
-    position: $('#position').val(),
-    hire_date: $('#hire_date').val(),
-    picture_fp: $('#picture_fp').val(),
-    pay_type: $('#pay_type').val(),
-  };
+$('#badScanForm').on('submit', (event) => {
+    event.preventDefault();
+    const code = $('#badgeID').val();
+    $('#badgeID').val("")
 
-  axios.post('/api/employees', employee)
-    .then((response) => {
-      window.location = '/employees';
-    });
-});
+    axios.get(`/api/employees/${code}`)
+      .then((response) => {
+        const user = response.data;
+        if(user === null){
+          alert("Invalid Scan")
+        }else{
+          const scanEvent = {
+            code: $('#first_name').val(),
+            clocked_in: $('#last_name').val(),
+            time: $('#admin').val(),
+            week_num: $('#code').val(),
+            year: $('#working_status').val(),
+          };
+        }
+      })
+      .catch(err => {
+        throw(err);
+      })
+  });
 
-printClock();
 
-
-// run clock function
 function printClock() {
     setInterval(() => {
         var time = moment().format('h:mm a');
@@ -30,10 +32,11 @@ function printClock() {
     }, 1000);
 };
 
+printClock();
+
 const updateEmployees = function () {
   axios.get("/api/employees")
       .then((response) => {
-          console.log(response)
           const $table = $("#employee-table tbody");
           $table.empty();
           response.data.forEach((employee) => {
@@ -47,6 +50,7 @@ const updateEmployees = function () {
 
       });
 }
+
 
 updateEmployees();
 

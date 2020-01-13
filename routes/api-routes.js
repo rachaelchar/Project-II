@@ -8,17 +8,30 @@ router.get('/employees', (req, res) => {
     });
 });
 
-router.get('/employees/:id', (req, res) => {
-  const { id } = req.params;
-  db.Employee.findOne({
+router.get('/employees/:code', (req, res) => {
+  const { code } = req.params;
+  db.employee.findOne({
     where: {
-      id,
+      code: code,
     },
   })
     .then((employees) => {
       res.json(employees);
     });
 });
+
+// router.get('/employees/:code', (req, res) => {
+//   const { code } = req.params;
+//   console.log('=============================',code)
+//   db.employee.findOne({
+//     where: {
+//       code: code,
+//     },
+//   })
+//     .then((employees) => {
+//       res.json(employees);
+//     });
+// });
 
 router.post('/employees', (req, res) => {
   const employee = req.body;
