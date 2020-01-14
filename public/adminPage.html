@@ -8,30 +8,45 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Employee Management System: Admin Page</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="assets/js/adminPage.js"></script>
 </head>
 
-<body class="bg-gray-600">
+<body class="h-screen overlow-hidden">
 
-    <nav class="flex items-center justify-between flex-wrap bg-black p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-      </nav>
+    <div id="pageHeader" class="bg-black p-6 shadow-xl">
+        <div class="text-white mr-6 text-center">
+            <p class="">Invengeon Employee Management System</p>
+        </div>
+    </div>
 
 
-    <div id = "wrapper" class="flex">
-        <div class="flex-none w-2/12 bg-gray-600 items-center" id="sideBarContainer">
-            <div class="bg-gray-400 h-64 m-10">
-                <div> <img class="w-full h-full m-auto" src="../public/assets/images/Modern Logo.png"
-                        alt="Invengeon Logo"></div>
-                <!-- <p class= "text-center p-15 text-4xl">Create employee badge</p> -->
+    <div id="wrapper" class="flex h-auto">
+
+        <div id="sidebarContainer" class="flex-none w-3/12 bg-white border-r min-h-screen">
+            <div id="sidebar" class="main items-center">
+
+                <div class=""><img class="w-1/2 px-5 py-5 mx-auto " src="assets/images/Modern_Logo.png" alt="Logo">
+                </div>
+
+                <ul id="navLinks" class="flex flex-col">
+                    <li class="flex-1 mr-2">
+                        <a id="newEmplReg"
+                            class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+                            href="./adminPage.html">Register New Employee</a>
+                    </li>
+                    <li class="flex-1 mr-2">
+                        <a id="lstWksHrsBtn"
+                            class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+                            href="#">Print Last Weeks Hours</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <!-- class="main w-8-12 bg-blue-500 flex-grow" -->
 
-        <div id="mainContainer">
+        <div id="mainContainer" class="main w-5/12 bg-white  items-center justify-center mt-10 mr-5 ml-20 px-5 py-5">
+
+            <h1 class="text-center">Register New Employee</h1>
+
             <div class="w-full flex flex-col px-20 py-8">
                 <div class="w-1/2 bg-gray-400 h-48 m-4"></div>
                 <br>
@@ -41,7 +56,7 @@
                 </button>
                 <div class="bg-gray-400 m-4">
                     <div class="m-auto flex" id="form">
-                        <form class="w-full max-w-lg content-center">
+                        <form class="w-full max-w-lg content-center p-4 shadow-lg">
                             <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -105,7 +120,7 @@
                                                 viewBox="0 0 20 20">
                                                 <path
                                                     d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                                </svg>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
@@ -130,6 +145,11 @@
             </div>
 
         </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="assets/js/adminPage.js"></script>
 
 
         <!-- <div class="flex" id="wrapper">
