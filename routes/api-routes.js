@@ -20,19 +20,6 @@ router.get('/employees/:code', (req, res) => {
     });
 });
 
-// router.get('/employees/:code', (req, res) => {
-//   const { code } = req.params;
-//   console.log('=============================',code)
-//   db.employee.findOne({
-//     where: {
-//       code: code,
-//     },
-//   })
-//     .then((employees) => {
-//       res.json(employees);
-//     });
-// });
-
 router.post('/employees', (req, res) => {
   const employee = req.body;
   db.Employee.create(employee)
