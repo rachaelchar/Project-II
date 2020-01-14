@@ -34,4 +34,9 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// sequelize association examples
+//   sourceModel.hasOne(targetModel);
+//  sourceModel.hasMany(targetModel);
+//  targetModel.belongsTo(sourceTable);
+
 module.exports = db;
