@@ -8,11 +8,11 @@ router.get('/employees', (req, res) => {
     });
 });
 
-router.get('/employees/:id', (req, res) => {
-  const { id } = req.params;
-  db.Employee.findOne({
+router.get('/employees/:code', (req, res) => {
+  const { code } = req.params;
+  db.employee.findOne({
     where: {
-      id,
+      code: code,
     },
   })
     .then((employees) => {

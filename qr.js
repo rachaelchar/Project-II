@@ -21,7 +21,7 @@ module.exports = function generateQR() {
   ];
 
   QRCode.toString(segs, { type: 'terminal' }, (err, url) => {
-    console.log('+++++++++++++++++++++++++++++++++++QR code url', url);
+    console.log('+++++++++++++++++++++++++++++++++++QR code url\n', url);
   });
 
   const newEmployeeCode = `INVE${numString}`;
