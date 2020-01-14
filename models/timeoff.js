@@ -1,11 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   const timeoff = sequelize.define('timeoff', {
-    first_name: {
-      type: DataTypes.STRING,
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
+    employee_id: {
+      type: DataTypes.UUID,
       allowNull: false,
     },
     start_date: {
@@ -19,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     reason: {
       type: DataTypes.TEXT,
     },
-    vacation: {
-      type: DataTypes.BOOLEAN,
+    leave_type_id: {
+      type: DataTypes.UUID,
       allowNull: false,
     },
   });
