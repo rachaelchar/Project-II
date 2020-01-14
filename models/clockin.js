@@ -21,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
+  }, {
+    underscored: true
   });
 
   return clockin;
