@@ -8,6 +8,18 @@ router.get('/employees', (req, res) => {
     });
 });
 
+// * how to join with working status table:
+router.get('/employees/status', (req, res) => {
+  db.employee.findAll({
+    include: [
+      db.working_status,
+    ],
+  })
+    .then((employees) => {
+      res.json(employees);
+    });
+});
+
 router.get('/employees/:code', (req, res) => {
   const { code } = req.params;
   db.employee.findOne({
