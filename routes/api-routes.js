@@ -12,7 +12,7 @@ router.get('/employees/:code', (req, res) => {
   const { code } = req.params;
   db.employee.findOne({
     where: {
-      code: code,
+      code,
     },
   })
     .then((employees) => {
@@ -22,8 +22,8 @@ router.get('/employees/:code', (req, res) => {
 
 router.post('/employees', (req, res) => {
   const employee = req.body;
-  db.Employee.create(employee)
-    .then((results) => {
+  db.employee.create(employee)
+    .then(() => {
       res.json({
         success: true,
       });
@@ -39,11 +39,11 @@ router.post('/employees', (req, res) => {
 
 router.delete('/employees/:id', (req, res) => {
   const { id } = req.params;
-  db.Employee.destroy({
+  db.employee.destroy({
     where: {
       id,
     },
-  }).then((response) => {
+  }).then(() => {
     res.json({
       success: true,
     });
