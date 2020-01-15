@@ -25,3 +25,16 @@ h1 {
 #canvas {
   display:none;
 }
+
+.badge {
+  height: 4cm;
+  width: 6in;
+
+}
+
+.badge-bg {
+  background-image: url('../images/Modern_Logo.png');
+  opacity: .2;
+  object-fit: fill;
+}
+

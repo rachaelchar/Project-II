@@ -1,6 +1,11 @@
-// QR code = INVE + 8 random digits
-
 const QRCode = require('qrcode');
+const fs = require('fs');
+const pdf = require('html-pdf');
+const open = require('open');
+
+
+// ================== QR CODE GENERATOR ==================
+
 
 let numString = '';
 const numbers = '1234567890';
@@ -28,3 +33,18 @@ module.exports = function generateQR() {
   // New employee code will be saved to the database
   console.log('newEmployeeCode =', newEmployeeCode);
 };
+
+// ================== PDF GENERATOR ==================
+
+function writeToFile(html) {
+  const options = {
+    zoomFactor: 0.75,
+  };
+
+  pdf.create(html, options).toFile('./badge.pdf', (err, res) => {
+    if (err) return console.log(err);
+    console.log(res.filename);
+
+    open('badge.pdf');
+  });
+}
