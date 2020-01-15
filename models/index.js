@@ -46,7 +46,7 @@ db.pay_type = require('../models/pay_type')(sequelize, Sequelize);
 db.timeoff = require('../models/timeoff')(sequelize, Sequelize);
 db.working_status = require('../models/working_status')(sequelize, Sequelize);
 
-//Relations
+// Relations
 db.employee.belongsTo(db.working_status);
 db.working_status.hasMany(db.employee);
 

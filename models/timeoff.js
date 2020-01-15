@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const timeoff = sequelize.define('timeoff', {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-    },
+    // id: {
+    //   type: DataTypes.UUID,
+    //   primaryKey: true,
+    //   defaultValue: DataTypes.UUIDV4,
+    //   allowNull: false,
+    // },
     employee_id: {
       type: DataTypes.UUID,
       allowNull: false,
