@@ -13,6 +13,7 @@ router.get('/employees/status', (req, res) => {
   db.employee.findAll({
     include: [
       db.working_status,
+      db.pay_type,
     ],
   })
     .then((employees) => {
