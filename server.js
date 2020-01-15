@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('./models');
 const routes = require('./routes');
-const generate = require('./qr.js');
+const generate = require('./badge.js');
 
 
 const app = express();

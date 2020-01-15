@@ -1,5 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const employee = sequelize.define('employee', {
+    // id: {
+    //   type: DataTypes.UUID,
+    //   primaryKey: true,
+    //   defaultValue: DataTypes.UUIDV4,
+    //   allowNull: false,
+    // },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,8 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    working_status: {
-      type: DataTypes.BOOLEAN,
+    working_status_id: {
+      type: DataTypes.UUID,
+      allowNull: false,
     },
     position: {
       type: DataTypes.STRING,
@@ -37,9 +44,12 @@ module.exports = (sequelize, DataTypes) => {
     picture_fp: {
       type: DataTypes.STRING,
     },
-    pay_type: {
-      type: DataTypes.STRING,
+    pay_type_id: {
+      type: DataTypes.UUID,
+      allowNull: false,
     },
+  }, {
+    underscored: true
   });
 
   return employee;

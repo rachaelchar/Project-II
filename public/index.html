@@ -10,8 +10,8 @@
 </head>
 
 <body class="h-screen overflow-hidden">
-  <div id="pageHeader" class=" bg-black p-6 shadow-xl">
-    <div class="text-white mr-6 text-center">
+  <div id="pageHeader" class="bg-black p-6 shadow-xl">
+    <div class="text-white mr-6 text-center font-bold text-xl">
       <p class="">Invengeon Employee Management System</p>
     </div>
 
@@ -20,7 +20,7 @@
   <div id="wrapper" class="flex h-auto">
 
 
-    <div id="sidebarContainer" class="flex-none w-3/12 bg-white border-r min-h-screen">
+    <div id="sidebarContainer" class="flex-none w-3/12 bg-gray-600 border-r min-h-screen">
       <div id="sidebar" class="main items-center">
 
         <div class=""><img class="w-1/2 px-5 py-5 mx-auto " src="assets/images/Modern_Logo.png" alt="Logo"></div>
@@ -28,12 +28,12 @@
         <ul id="navLinks" class="flex flex-col">
           <li class="flex-1 mr-2">
             <a id="newEmplReg"
-              class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+              class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
               href="./adminPage.html">Register New Employee</a>
           </li>
           <li class="flex-1 mr-2">
             <a id="lstWksHrsBtn"
-              class="text-center block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4"
+              class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
               href="#">Print Last Weeks Hours</a>
           </li>
         </ul>
@@ -41,7 +41,7 @@
     </div>
 
 
-    <div id="mainContainer" class="main w-5/12 bg-white  items-center justify-center mt-10 mr-5 ml-20 px-5 py-5 ">
+    <div id="mainContainer" class="main w-5/12 bg-white  items-center justify-center mt-10 mr-5 ml-20 px-5 py-5">
 
 
       <div id="innerMainContainer" class="border shadow-2xl border-black bg-gray-100 text-center">
@@ -68,12 +68,12 @@
       <p class="text-center text-1xl font-bold text-gray-900 "></p>
       <div id="currentStatusList" class="flex justify-center">
         <div>
-          <table id="employee-table" class="table-fixed ml-5 mr-5 bg-white border border-black border-collapse shadow-2xl ">
+          <table id="employee-table" class="table-fixed ml-5 mr-5 bg-white border border-black border-collapse shadow-2xl">
             <thead>
               <tr>
-                <th class="border w-1/2 px-4 py-2">Employee</th>
-                <th class="border w-1/4 px-4 py-2">Status</th>
-                <th class="border w-1/4 px-4 py-2">Profile</th>
+                <th class="border w-1/2 px-16 py-2">Employee</th>
+                <th class="border w-1/4 px-10 py-2">Status</th>
+                <th class="border w-1/4 px-10 py-2">Profile</th>
               </tr>
             </thead>
             <tbody>
@@ -90,8 +90,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-    <script src="assets/js/index.js"></script>
     <script src="assets/js/moment.js"></script>
+    <script src="assets/js/index.js"></script>
+    
 
 
   </div>
