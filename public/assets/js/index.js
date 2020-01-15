@@ -23,15 +23,25 @@ $('#badScanForm').on('submit', (event) => {
     });
 });
 
+// function displayClock() {
+//   const time = moment().format('h:mm a');
+//   const day = moment().format('dddd, MMMM Do');
+//   $('#currentTime').html(`<p class='text-center text-6xl font-bold text-gray-900 mb-1'>${time}</p>  <p class='text-center text-1xl font-bold text-gray-900 mb-6'>${day}</p>`);
+// }
+
+function displayClock() {
+  const time = moment().format('h:mm a');
+  const day = moment().format('dddd, MMMM Do');
+  $('#currentTime').html(`<p class='text-center text-6xl font-bold text-gray-900 mb-1'>${time}</p>  <p class='text-center text-1xl font-bold text-gray-900 mb-6'>${day}</p>`);
+}
 
 function printClock() {
   setInterval(() => {
-    const time = moment().format('h:mm a');
-    const day = moment().format('dddd, MMMM Do');
-    $('#currentTime').html(`<p class='text-center text-6xl font-bold text-gray-900 mb-1'>${time}</p>  <p class='text-center text-1xl font-bold text-gray-900 mb-6'>${day}</p>`);
+    displayClock();
   }, 1000);
 }
 
+displayClock();
 printClock();
 
 const updateEmployees = function () {
