@@ -8,25 +8,33 @@
     <title>Employee Management System: Profile Page</title>
 </head>
 <body>
-<div id="wrapper" class="flex">
-    <div id="sidebarContainer" class="flex-none w-2/12 bg-gray-600">
-        <div id="sidebar" class="main items-center">
-          <div class=""><img class="w-full px-3 py-3" src="assets/images/Modern_Logo.png" alt="Logo"></div>
-          <ul id ="navLinks" class="flex flex-col">
-            <li class="flex-1 mr-2">
-              <a id="newEmplReg"class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded"
-                href="#">Register New Employee</a>
-            </li>
-            <li class="flex-1 mr-2">
-              <a id="lstWksHrsBtn"class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded"
-                href="#">Print Last Weeks Hours</a>
-            </li>
-            <li class="text-center flex-1">
-              <a class="cursor-pointer bg-blue-600 hover:bg-blue-500 block border border-white shadow-xl px-5 py-2 inline-block text-blue-100 hover:text-white rounded" href="#">Disabled Item</a>
-            </li>
-          </ul>
-        </div>
+  <div id="pageHeader" class="bg-black p-6 shadow-xl">
+    <div class="text-white mr-6 text-center">
+        <p class="font-bold text-xl">Invengeon Employee Management System</p>
     </div>
+</div>
+
+<div id="wrapper" class="flex">
+  <div id="sidebarContainer" class="flex-none w-3/12 bg-gray-600 border-r min-h-screen">
+    <div id="sidebar" class="main items-center">
+
+        <div class=""><img class="w-1/2 px-5 py-5 mx-auto " src="assets/images/Modern_Logo.png" alt="Logo">
+        </div>
+
+        <ul id="navLinks" class="flex flex-col">
+            <li class="flex-1 mr-2">
+                <a id="newEmplReg"
+                    class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
+                    href="./adminPage.html">Register New Employee</a>
+            </li>
+            <li class="flex-1 mr-2">
+                <a id="lstWksHrsBtn"
+                    class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
+                    href="#">Print Last Weeks Hours</a>
+            </li>
+        </ul>
+    </div>
+</div>
     <div id= "mainContainer" class="main w-8/12 bg-gray-300 flex-grow">
         <div class="flex mx-2 mt-2 mb-2">
           <div class="w-1/3">
