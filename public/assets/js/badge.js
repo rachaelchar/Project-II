@@ -2,7 +2,7 @@ const QRCode = require('qrcode');
 const fs = require('fs');
 const pdf = require('html-pdf');
 const open = require('open');
-const generateHTML = require('generateHTML.js')
+const generateHTML = require('generateHTML');
 
 // ================== QR CODE GENERATOR ==================
 
@@ -44,11 +44,16 @@ module.exports = function generateQR() {
 };
 
 
-
 // ================== PDF GENERATOR ==================
 
+function makePDF() {
+  axios.get(`/api/employees/?id=${id}`)
+    .then((response) => {
+      console.log("makePDF response", response);
+    });
+}
+makePDF()
 function writeToFile(html) {
-
   pdf.create(html).toFile('./badge.pdf', (err, res) => {
     if (err) return console.log(err);
     // console.log(res.filename);
@@ -56,3 +61,10 @@ function writeToFile(html) {
     open('badge.pdf');
   });
 }
+
+// print qr code to html page
+$(document).ready(() => {
+  $('#qr-code').click(() => {
+    $('#pdf-qrcode').load();
+  });
+});
