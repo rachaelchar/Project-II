@@ -2,7 +2,7 @@ const QRCode = require('qrcode');
 const fs = require('fs');
 const pdf = require('html-pdf');
 const open = require('open');
-
+const generateHTML = require('generateHTML.js')
 
 // ================== QR CODE GENERATOR ==================
 
@@ -48,13 +48,10 @@ module.exports = function generateQR() {
 // ================== PDF GENERATOR ==================
 
 function writeToFile(html) {
-  const options = {
-    zoomFactor: 0.75,
-  };
 
-  pdf.create(html, options).toFile('./badge.pdf', (err, res) => {
+  pdf.create(html).toFile('./badge.pdf', (err, res) => {
     if (err) return console.log(err);
-    console.log(res.filename);
+    // console.log(res.filename);
 
     open('badge.pdf');
   });
