@@ -2,23 +2,36 @@ const router = require('express').Router();
 const db = require('../models');
 
 router.get('/employees', (req, res) => {
-  db.employee.findAll()
-    .then((employees) => {
-      res.json(employees);
-    });
+  let query;
+  if (req.query.id) {
+    query = db.employee.findOne({
+      where: { id: req.query.id },
+      include: [db.working_status, db.pay_type],
+    })
+  } else if (req.query.code) {
+    query = db.employee.findOne({
+      where: { code: req.query.code },
+      include: [db.working_status, db.pay_type],
+    })
+  } else {
+    query = db.employee.findAll({
+      include: [db.working_status, db.pay_type],
+    })
+  }
+
+  return query.then(employees => res.json(employees));
 });
 
-router.get('/employees/:code', (req, res) => {
-  const { code } = req.params;
-  db.employee.findOne({
-    where: {
-      code,
-    },
-  })
-    .then((employees) => {
-      res.json(employees);
-    });
-});
+router.put('/employees/clockin', (req,res) => {
+  db.employee.update(
+    { 
+      working_status_id: req.body.working_status_id,}, 
+    { where: { id: req.body.id }}
+  )
+  .then(function(dbEmployee) {
+    res.json(dbEmployee);
+  });
+})
 
 router.post('/employees', (req, res) => {
   const employee = req.body;
@@ -48,6 +61,10 @@ router.delete('/employees/:id', (req, res) => {
       success: true,
     });
   });
+});
+
+router.get('/clockins', (req, res) => {
+ 
 });
 
 
