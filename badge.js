@@ -25,14 +25,25 @@ module.exports = function generateQR() {
     { data: numString, mode: 'numeric' },
   ];
 
+  // ========== print code to terminal ==========
   QRCode.toString(segs, { type: 'terminal' }, (err, url) => {
     console.log('+++++++++++++++++++++++++++++++++++QR code url\n', url);
   });
+
+  // ========== print code to pdf div ==========
+  // QRCode.toCanvas('text', { errorCorrectionLevel: 'H' }, (err, canvas) => {
+  //   if (err) throw err;
+
+  //   const pdfcode = document.getElementById('pdf-qrcode');
+  //   pdfcode.appendChild(canvas);
+  // });
 
   const newEmployeeCode = `INVE${numString}`;
   // New employee code will be saved to the database
   console.log('newEmployeeCode =', newEmployeeCode);
 };
+
+
 
 // ================== PDF GENERATOR ==================
 
