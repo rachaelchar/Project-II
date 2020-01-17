@@ -1,12 +1,12 @@
 const express = require('express');
 const db = require('./models');
 const routes = require('./routes');
-const generate = require('./badge.js');
+// const generateHTML = require('./public/assets/js/generateHTML.js');
 
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,4 +22,4 @@ db.sequelize.sync().then(() => {
   });
 });
 
-generate();
+// generateHTML();
