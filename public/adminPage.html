@@ -56,12 +56,9 @@
                 </div>
                 <div class="w-2/3 px-2 bg-gray-500">
                     <div class="bg-gray-500 h-96">
-
-                        <!-- <div id=employeeForm class=> -->
                         <h1 class="text-center mt-3 text-xl" style="font-weight: bold;">Employee Register Form</h1>
                         <div class="bg-gray-400 m-4">
                             <form class="m-auto flex" id="new-employee-form">
-                                <!-- <form class="w-full max-w-lg content-center p-4 shadow-lg"> -->
                                 <div class="flex flex-wrap -mx-3 mb-6 p-12">
                                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                         <label
@@ -70,9 +67,8 @@
                                             First Name
                                         </label>
                                         <input
-                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             id="grid-first-name" type="text" placeholder="Jane">
-                                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
                                     </div>
                                     <br>
                                     <div class="w-full md:w-1/2 px-3">
@@ -116,7 +112,7 @@
                                         </label>
                                         <input
                                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                            type="text" placeholder="mm/dd/yyy">
+                                            type="text" placeholder="mm/dd/yyyy">
                                     </div>
                                     <br>
                                     <div class="w-full md:w-1/2 px-3">
@@ -125,9 +121,22 @@
                                             for="">
                                             Administrative Priveleges?
                                         </label>
-                                        <input
-                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                            type="text" placeholder="">
+                                        <div class="relative">
+                                            <select
+                                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="grid-state">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                    </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                     <br>
                                     <div class="w-full md:w-1/2 px-3">
@@ -181,7 +190,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="assets/js/adminPage.js"></script>
 </body>
