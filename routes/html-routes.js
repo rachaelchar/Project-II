@@ -21,6 +21,11 @@ router.get('/profile', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/profile.html'));
 });
 
+router.get('/sampleBadge', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/sampleBadge.html'));
+});
+
+
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
