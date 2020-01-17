@@ -8,34 +8,31 @@ $('#badScanForm').on('submit', (event) => {
     .then((response) => {
       const user = response.data;
       if (user === null) {
-        return 'Invalid Scan'
-      } else {
-        const clockin_info = {
-          id: user.id,
-          working_status_id: user.working_status_id,
-          time: moment().format('HH:MM:SS'),
-          week_num: moment(moment().format('L'), "MM/DD/YYYY").week(),
-          year: moment().format('YYYY-MM-DD')
-        };
-        return clockin_info;
+        return 'Invalid Scan';
       }
-      
+      const clockinInfo = {
+        id: user.id,
+        working_status_id: user.working_status_id,
+        time: moment().format('HH:MM:SS'),
+        week_num: moment(moment().format('L'), 'MM/DD/YYYY').week(),
+        year: moment().format('YYYY-MM-DD'),
+      };
+      return clockinInfo;
     })
     .then((response) => {
-      if(response === false) {
-        return response
+      if (response === false) {
+        return response;
       }
-      else{
-        let newStatus = 2
-        if(response.working_status_id === 2 ||  response.working_status_id === 3) {
-           newStatus = 1;
-        }
-        axios.put('/api/employees/clockin', {
-          id: response.id,
-          working_status_id: newStatus,
-        })
-        updateEmployees();
+
+      let newStatus = 2;
+      if (response.working_status_id === 2 || response.working_status_id === 3) {
+        newStatus = 1;
       }
+      axios.put('/api/employees/clockin', {
+        id: response.id,
+        working_status_id: newStatus,
+      });
+      updateEmployees();
     })
     .catch((err) => {
       throw (err);
@@ -65,14 +62,12 @@ const updateEmployees = function () {
       response.data.forEach((employee) => {
         if (employee.working_status.id === 1) {
           status = employee.working_status.status;
-          color = "green"
+          color = 'green';
         } else {
           status = employee.working_status.status;
-          color = "red"
+          color = 'red';
         }
-        status = 
-
-        $table.append(`<tr><td class="border px-4 py-2">${employee.first_name} ${employee.last_name}</td><td class="border px-4 py-2" style="background-color: ${color};">${status}</td><td class="border px-4 py-2"><button data-id="${employee.id}" id="viewProfileBtn"class="justify-center bg-blue-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border">View</button></td></tr>`);
+        status = $table.append(`<tr><td class="border px-4 py-2">${employee.first_name} ${employee.last_name}</td><td class="border px-4 py-2" style="background-color: ${color};">${status}</td><td class="border px-4 py-2"><button data-id="${employee.id}" id="viewProfileBtn"class="justify-center bg-blue-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border">View</button></td></tr>`);
       });
     });
 };

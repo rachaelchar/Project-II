@@ -1,9 +1,9 @@
 
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 
-const basename = path.basename(__filename);
+// const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 
 // eslint-disable-next-line import/no-dynamic-require
@@ -19,7 +19,7 @@ if (config.use_env_variable) {
 
 // fs
 //   .readdirSync(__dirname)
-//   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
+// .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
 //   .forEach((file) => {
 //     const model = sequelize.import(path.join(__dirname, file));
 //     db[model.name] = model;

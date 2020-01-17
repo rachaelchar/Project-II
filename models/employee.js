@@ -1,11 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const employee = sequelize.define('employee', {
-    // id: {
-    //   type: DataTypes.UUID,
-    //   primaryKey: true,
-    //   defaultValue: DataTypes.UUIDV4,
-    //   allowNull: false,
-    // },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -49,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {
-    underscored: true
+    underscored: true,
   });
 
   return employee;
