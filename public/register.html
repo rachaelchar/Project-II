@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Employee Management System: Profile Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Employee Management System: Profile Page</title>
 </head>
+
 <body>
 
-        <br>
-        <h1 style="font-weight: bold;">Employee Register Form</h1>
-        <form style="border: solid; border-color: black;" id="new-employee-form">
-          <div class="form-group">
-            <label for="first_name">First Name</label>
-            <input type="text" class="form-control" id="first_name">
-          </div>
-          <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text" class="form-control" id="last_name">
-          </div>
-          <div class="form-group">
-            <label for="position">Position Title</label>
-            <input type="text" class="form-control" id="position">
-          </div>
-          <div class="form-group">
-            <label for="code">Employee Code</label>
-            <input type="text" class="form-control" id="code">
-          </div>
-          <div class="form-group">
-            <label for="hire_date">Date of Hire</label>
-            <input type="date" class="form-control" id="hire_date">
-          </div>
-          <div class="form-group">
-            <label for="picture_fp">Filepath to Employee Picture</label>
-            <input type="file" class="form-control" id="picture_fp">
-          </div>
-          <div class="form-group">
-            <label for="admin">Administrative Privlidges?</label>
-            <select id="admin" class="form-control">
-              <option value="false">False</option>
-              <option value="true">True</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="working_status">Currently Clocked In?</label>
-            <select id="working_status" class="form-control">
-              <option value="false">False</option>
-              <option value="true">True</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="pay_type">Pay Type</label>
-            <select id="pay_type" class="form-control">
-              <option value="Full Time">Full Time</option>
-              <option value="Part Time">Part Time</option>
-              <option value="Salary">Salary</option>
-            </select>
-          </div>
-    
-          <button style="background-color:green;" type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="assets/js/profile.js"></script>
-</body>
-</html>
+  <br>
+  <h1 style="font-weight: bold;">Employee Register Form</h1>
+  <form style="border: solid; border-color: black;" id="new-employee-form">
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" class="form-control" id="first_name">
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input type="text" class="form-control" id="last_name">
+    </div>
+    <div class="form-group">
+      <label for="position">Position Title</label>
+      <input type="text" class="form-control" id="position">
+    </div>
+    <div class="form-group">
+      <label for="code">Employee Code</label>
+      <input type="text" class="form-control" id="code">
+    </div>
+    <div class="form-group">
+      <label for="hire_date">Date of Hire</label>
+      <input type="date" class="form-control" id="hire_date">
+    </div>
+    <div class="form-group">
+      <label for="picture_fp">Filepath to Employee Picture</label>
+      <input type="file" class="form-control" id="picture_fp">
+    </div>
+    <div class="form-group">
+      <label for="admin">Administrative Privileges?</label>
+      <select id="admin" class="form-control">
+        <option value="false">False</option>
+        <option value="true">True</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="working_status">Currently Clocked In?</label>
+      <select id="working_status" class="form-control">
+        <option value="false">False</option>
+        <option value="true">True</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="pay_type">Pay Type</label>
+      <select id="pay_type" class="form-control">
+        <option value="Full Time">Full Time</option>
+        <option value="Part Time">Part Time</option>
+        <option value="Salary">Salary</option>
+      </select>
+    </div>
 
+    <button style="background-color:green;" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="assets/js/profile.js"></script>
+</body>
+
+</html>
