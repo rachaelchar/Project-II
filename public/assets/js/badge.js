@@ -1,70 +1,80 @@
-const QRCode = require('qrcode');
-const fs = require('fs');
-const pdf = require('html-pdf');
-const open = require('open');
-const generateHTML = require('generateHTML');
+// const QRCode = require('qrcode');
+// const fs = require('fs');
+// const pdf = require('html-pdf');
+// const open = require('open');
+// const generateHTML = require('generateHTML.js');
 
-// ================== QR CODE GENERATOR ==================
+// // ================== QR CODE GENERATOR ==================
 
 
-let numString = '';
-const numbers = '1234567890';
+// let numString = '';
+// const numbers = '1234567890';
 
-function makeNumData(length) {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < length; i++) {
-    numString += (numbers.charAt(Math.floor(Math.random() * numbers.length)));
-  }
-}
+// function makeNumData(length) {
+//   // eslint-disable-next-line no-plusplus
+//   for (let i = 0; i < length; i++) {
+//     numString += (numbers.charAt(Math.floor(Math.random() * numbers.length)));
+//   }
+// }
 
-module.exports = function generateQR() {
-  console.log(makeNumData(8));
-  console.log('numstring = ', numString);
-  const segs = [
-    { data: 'INVE', mode: 'alphanumeric' },
-    { data: numString, mode: 'numeric' },
-  ];
+// module.exports = function generateQR() {
+//   console.log(makeNumData(8));
+//   console.log('numstring = ', numString);
+//   const segs = [
+//     { data: 'INVE', mode: 'alphanumeric' },
+//     { data: numString, mode: 'numeric' },
+//   ];
 
-  // ========== print code to terminal ==========
-  QRCode.toString(segs, { type: 'terminal' }, (err, url) => {
-    console.log('+++++++++++++++++++++++++++++++++++QR code url\n', url);
-  });
+//   // ========== print code to terminal ==========
+//   QRCode.toString(segs, { type: 'terminal' }, (err, url) => {
+//     console.log('+++++++++++++++++++++++++++++++++++QR code url\n', url);
+//   });
 
-  // ========== print code to pdf div ==========
-  // QRCode.toCanvas('text', { errorCorrectionLevel: 'H' }, (err, canvas) => {
-  //   if (err) throw err;
+//   // ========== print code to pdf div ==========
+//   // QRCode.toCanvas('text', { errorCorrectionLevel: 'H' }, (err, canvas) => {
+//   //   if (err) throw err;
 
-  //   const pdfcode = document.getElementById('pdf-qrcode');
-  //   pdfcode.appendChild(canvas);
-  // });
+//   //   const pdfcode = document.getElementById('pdf-qrcode');
+//   //   pdfcode.appendChild(canvas);
+//   // });
 
-  const newEmployeeCode = `INVE${numString}`;
-  // New employee code will be saved to the database
-  console.log('newEmployeeCode =', newEmployeeCode);
-};
-
+//   const newEmployeeCode = `INVE${numString}`;
+//   // New employee code will be saved to the database
+//   console.log('newEmployeeCode =', newEmployeeCode);
+// };
 
 // ================== PDF GENERATOR ==================
 
-function makePDF() {
+
+const opts = {
+  errorCorrectionLevel: 'H',
+  type: 'image/jpeg',
+  quality: 0.3,
+  margin: 1,
+  color: {
+    dark: '#000000',
+    light: '#FFFFFF',
+  },
+};
+
+QRCode.toDataURL("test", opts, (err, url) => {
+  if (err) throw err;
+
+  const img = document.getElementById('photo');
+  img.src = url;
+});
+
+
+function getEmployeeData() {
+  const id = 3;
   axios.get(`/api/employees/?id=${id}`)
     .then((response) => {
-      console.log("makePDF response", response);
+      console.log('makePDF response', response);
+      $('#pdf-name').text(`${response.data.first_name} ${response.data.last_name}`);
+      $('#pdf-position').text(`${response.data.position}`);
+
+      // const canvasPic = $('#pdf-qrcode');
+      var { code } = response.data.code;
     });
 }
-makePDF()
-function writeToFile(html) {
-  pdf.create(html).toFile('./badge.pdf', (err, res) => {
-    if (err) return console.log(err);
-    // console.log(res.filename);
-
-    open('badge.pdf');
-  });
-}
-
-// print qr code to html page
-$(document).ready(() => {
-  $('#qr-code').click(() => {
-    $('#pdf-qrcode').load();
-  });
-});
+getEmployeeData();
