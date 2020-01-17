@@ -34,6 +34,7 @@ router.put('/employees/clockin', (req,res) => {
 })
 
 router.post('/employees', (req, res) => {
+// router.post('/api/employees', (req, res) => {
   const employee = req.body;
   db.employee.create(employee)
     .then(() => {
