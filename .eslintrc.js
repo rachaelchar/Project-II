@@ -13,6 +13,9 @@ module.exports = {
     es6: true,
     node: true,
     jquery: true,
+    axios: true,
+    moment: true,
+    QRCode: true,
   },
   extends: [
     'airbnb-base',

@@ -27,14 +27,31 @@ h1 {
 }
 
 .badge {
-  height: 4cm;
-  width: 6in;
-
+  height: 2.25in;
+  width: 3.5in;
+  background-image: url('../images/badge_bg.jpg');
+  background-size: 100% 100%;
 }
 
-.badge-bg {
-  background-image: url('../images/Modern_Logo.png');
-  opacity: .2;
-  object-fit: fill;
+.badge-logo {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
 }
+
+.badge-img {
+  height: 1in;
+  width: 1in;
+}
+
+#photo {
+  margin-top: 3%;
+  height: .75in;
+  width: .75in;
+}
+
+
+
+
+
 
