@@ -7,6 +7,59 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Employee Management System: Home</title>
+  <style>
+    .popup {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    .popup .popuptext {
+      visibility: hidden;
+      width: 160px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -80px;
+    }
+    
+    .popup .popuptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+    
+    .popup .show {
+      visibility: visible;
+      -webkit-animation: fadeIn 1s;
+      animation: fadeIn 1s;
+    }
+    
+    @-webkit-keyframes fadeIn {
+      from {opacity: 0;} 
+      to {opacity: 1;}
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+    </style>
 </head>
 
 <body class="h-screen overflow-hidden">
@@ -23,17 +76,17 @@
     <div id="sidebarContainer" class="flex-none w-3/12 bg-gray-600 border-r min-h-screen">
       <div id="sidebar" class="main items-center">
 
-        <div class=""><img class="w-1/2 px-5 py-5 mx-auto " src="assets/images/Modern_Logo.png" alt="Logo"></div>
+        <div class=""><img class="w-1/2 px-5 py-5 mx-auto" src="assets/images/Modern_Logo.png" alt="Logo"></div>
 
         <ul id="navLinks" class="flex flex-col">
           <li class="flex-1 mr-2">
             <a id="newEmplReg"
-              class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
+              class="text-center block border bg-gray-600 border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
               href="./adminPage.html">Register New Employee</a>
           </li>
           <li class="flex-1 mr-2">
             <a id="lstWksHrsBtn"
-              class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
+              class="text-center block border bg-gray-600 border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
               href="#">Print Last Weeks Hours</a>
           </li>
         </ul>
@@ -53,11 +106,11 @@
 
 
         <form id="badScanForm" class="w-full flex justify-center ">
-          <div class=" py-2 px-12 w-full mb-4">
+          <div class=" py-2 px-12 w-full mb-4 popup" onkeypress="myFunction()">
             <input id="badgeID"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text" placeholder="Scan Badge QR Code">
-
+              <span class="popuptext" id="myPopup">ID Scanned</span>
           </div>
         </form>
       </div>
@@ -92,6 +145,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <script src="assets/js/moment.js"></script>
     <script src="assets/js/index.js"></script>
+    <script>
+      function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
+      </script>
     
 
 

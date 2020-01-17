@@ -39,6 +39,17 @@ h1 {
   margin-top: 5%;
 }
 
+.badge-img {
+  height: 1in;
+  width: 1in;
+}
+
+#photo {
+  margin-top: 3%;
+  height: .75in;
+  width: .75in;
+}
+
 
 
 
