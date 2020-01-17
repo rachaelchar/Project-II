@@ -8,7 +8,7 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'mysql',
     define: {
-      underscored: true
+      underscored: true,
     },
   },
   test: {
@@ -18,7 +18,7 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'mysql',
     define: {
-      underscored: true
+      underscored: true,
     },
   },
   production: {
@@ -29,7 +29,7 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'mysql',
     define: {
-      underscored: true
+      underscored: true,
     },
   },
   aws: {
