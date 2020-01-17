@@ -11,6 +11,8 @@ $('#new-employee-form').on('submit', (event) => {
       picture_fp: $('#picture_fp').val(),
       pay_type: $('#pay_type').val(),
     };
+
+    console.log(employee);
   
     axios.post('/api/employees', employee)
       .then((response) => {
