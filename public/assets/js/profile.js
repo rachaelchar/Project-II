@@ -22,15 +22,3 @@ const displayEmployeeData = function () {
 };
 
 displayEmployeeData();
-
-<div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div id="picDiv"></div>
-      <div id="btnDiv">
-        <button id="webcam"
-          class="camBtns cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">Start
-          Webcam</button>
-      </div>
-    </div>
-  </div>

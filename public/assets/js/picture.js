@@ -8,17 +8,17 @@ var btn = document.getElementById("pic");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -35,7 +35,7 @@ let video = null;
 
 const streaming = false;
 const cameraDiv = $('<div class="camera"><video id="video"></video><div class="overlay-desc"><h1 id="countdown"></h1></div></div>');
-const canvasDiv = $('<canvas id="canvas"></canvas><div class="output"><img id="photo"></div>');
+const canvasDiv = $('<canvas id="canvas"></canvas><div class="output"><img id="IDphoto"></div>');
 const webcam = $('<button id="webcam" class="camBtns cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">Start Webcam</button>');
 const snapshot = $('<button id="snapshot" class="camBtns cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">Take Picture</button>');
 const savePic = $('<button id="saveBtn" class="cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded" >Submit Picture</button>');
@@ -62,7 +62,7 @@ function capture(mediaStream) {
       if (width && height) {
         context.drawImage(video[0], 0, 0, width, height);
         const data = $('#canvas')[0].toDataURL('image/png');
-        $('#photo').attr('src', data);
+        $('#IDphoto').attr('src', data);
       }
 
       const tracks = mediaStream.getTracks();
@@ -96,17 +96,7 @@ $(document).on('click', '#webcam', () => {
 
 $(document).on('click', '#saveBtn', () => {
   const canvas = document.getElementById('canvas');
-
-  canvas.toBlob((blob) => {
-    // const newImg = document.createElement('img');
-    // const url = URL.createObjectURL(blob);
-
-    // newImg.onload = () => {
-    //   URL.revokeObjectURL(url);
-    // };
-
-    // newImg.src = url;
-    // document.body.appendChild(newImg);
-    console.log(blob);
-  }, 'image/jpeg', 0.95);
+  const data = $('#canvas')[0].toDataURL('image/png');
+  $('#profile-pic').attr('src', data);
+  modal.style.display = "none";
 });

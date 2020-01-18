@@ -2,7 +2,7 @@
   position: relative;
   display:inline-block;
 }
-#video, #photo {
+#video, #IDphoto {
   border: 1px solid black;
   width: 640px;
   height:480px;
@@ -94,6 +94,10 @@ h1 {
   cursor: pointer;
 }
 
+#profile-pic{
+  width: 425.170px;
+  height: 425.170px;
+}
 
 
 
