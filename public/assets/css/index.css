@@ -1,7 +1,9 @@
 .clockedin {
-    background-color: green;
+    color: green;
+    font-weight: bold;
 }
 
 .clockedout {
-    background-color: red;
+    color: red;
+    font-weight: bold;
 }
