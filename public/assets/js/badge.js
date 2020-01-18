@@ -43,8 +43,8 @@
 //   console.log('newEmployeeCode =', newEmployeeCode);
 // };
 
-// ================== PDF GENERATOR ==================
 
+// ================== BADGE GENERATOR ==================
 
 
 
