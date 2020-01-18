@@ -13,10 +13,6 @@ router.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/adminPage.html'));
 });
 
-router.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/register.html'));
-});
-
 router.get('/profile', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/profile.html'));
 });
