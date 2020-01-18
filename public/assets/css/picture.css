@@ -50,11 +50,6 @@ h1 {
   width: .75in;
 }
 
-#btnDin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 #return {
   position:relative;
@@ -62,4 +57,10 @@ h1 {
 }
 
 
-
+@media print
+{
+    * {-webkit-print-color-adjust:exact;}
+    #return{
+      display: none;
+    }
+}
