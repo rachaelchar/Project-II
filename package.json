@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "tailwind build src/style.css -o public/css/style.css",
-    "start": "nodemon server.js",
-    // "heroku-postbuild": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
