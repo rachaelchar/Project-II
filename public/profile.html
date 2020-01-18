@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/picture.css">
   <title class="font-bold text-xl">Employee Management System: Profile Page</title>
 </head>
 
@@ -28,8 +29,8 @@
     <div id="sidebarContainer" class="flex-none w-3/12 bg-gray-600 border-r min-h-screen">
       <div id="sidebar" class="main items-center">
 
-        <button onclick="window.location.href= '/';"><img class="w-1/2 px-7 py-7 mt-2 mb-2 mx-auto" src="assets/images/Modern_Logo.png"
-            alt="Logo"></button>
+        <button onclick="window.location.href= '/';"><img class="w-1/2 px-7 py-7 mt-2 mb-2 mx-auto"
+            src="assets/images/Modern_Logo.png" alt="Logo"></button>
 
         <ul id="navLinks" class="flex flex-col">
 
@@ -56,7 +57,7 @@
               class="text-center block border border-blue-500 rounded hover:border-gray-200 text-gray-100 font-bold hover:bg-gray-200 py-2 px-4"
               href="#">Print Last Weeks Hours</a>
           </li>
-          
+
         </ul>
       </div>
     </div>
@@ -64,22 +65,28 @@
       <div class="flex mx-2 mt-2 mb-2">
         <div class="w-1/3">
           <div id="image-box" class="bg-gray-400 h-96">
-            <img class="border border-indigo-100 shadow-lg round"
-              src="http://lilithaengineering.co.za/wp-content/uploads/2017/08/person-placeholder.jpg">
+            <img id="profile-pic" class="border border-indigo-100 shadow-lg round">
+            <button id="pic"
+              class="bg-blue-500 hover:bg-blue-700 text-white bg-#b0c4de font-bold py-2 px-4 border border-blue-700 rounded w-full">
+              Take New Picture
+            </button>
           </div>
         </div>
         <div class="w-2/3 px-2 bg-gray-500">
           <div class="bg-gray-500 h-96">
             <ul class="mb-2 mx-2 mt-4 bg-white border-solid border-grey-light rounded border shadow-sm text-left">
-              <li id="employee-name" class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
-                Employee Name:</li>
-              <li id="employee-position" class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
-                Employee Position:
+              <li class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
+                Employee Name:<strong class="ml-5" id="name"></strong>
               </li>
-              <li id="hire-date" class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">Hire
-                Date:</li>
-              <li id="accrued-time" class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
-                Accrued Time:</li>
+              <li class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
+                Employee Position:<strong class="ml-5" id="employee-position"></strong>
+              </li>
+              <li class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">Hire
+                Date:<strong class="ml-5" id="hire-date"></strong>
+              </li>
+              <li class="bg-grey-lighter px-2 py-3 border-solid border-grey-light border-b">
+                Accrued Time:<strong class="ml-5" id="accrued-time"></strong>
+              </li>
             </ul>
           </div>
         </div>
@@ -98,7 +105,7 @@
           <button id="time-off-button" class="w-1/3 px-2 mb-2">
             <div>
               <a href="#"
-                class="cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">
+                class="cursor-pointer bg-gray-600 hover:bg-gray-500 shadow-xl text-center px-5 py-2 inline-block text-gray-100 hover:text-white rounded">
                 Req. Time Off
               </a>
             </div>
@@ -106,7 +113,7 @@
           <button id="see-all-weeks-button" class="w-1/3 px-2 mb-2">
             <div>
               <a href="#"
-                class="cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">
+                class="cursor-pointer bg-gray-600 hover:bg-gray-500 shadow-xl text-center px-5 py-2 inline-block text-gray-100 hover:text-white rounded">
                 See All Weeks
               </a>
             </div>
@@ -122,13 +129,28 @@
         </div>
       </div>
     </div>
-
-
   </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="picDiv"></div>
+      <div id="btnDiv">
+        <button id="webcam"
+          class="camBtns cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">Start
+          Webcam</button>
+      </div>
+    </div>
+  </div>
+
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+  <script src="assets/js/moment.js"></script>
   <script src="assets/js/profile.js"></script>
+  <script src="./assets/js/picture.js"></script>
 </body>
 
 </html>

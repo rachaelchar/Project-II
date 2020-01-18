@@ -49,7 +49,7 @@
 
 
 
-
+const code = document.location.search.replace(/^.*?\=/, '');
 
 const opts = {
   errorCorrectionLevel: 'H',
@@ -62,7 +62,7 @@ const opts = {
   },
 };
 
-QRCode.toDataURL("test", opts, (err, url) => {
+QRCode.toDataURL(code, opts, (err, url) => {
   if (err) throw err;
 
   const img = document.getElementById('photo');
@@ -70,17 +70,16 @@ QRCode.toDataURL("test", opts, (err, url) => {
 });
 
 
-function getEmployeeData() {
-  const id = document.location.search.replace(/^.*?\=/,'');
-  console.log('got the employee id as:' + id)
-  axios.get(`/api/employees/?id=${id}`)
-    .then((response) => {
-      console.log('makePDF response', response);
-      $('#pdf-name').text(`${response.data.first_name} ${response.data.last_name}`);
-      $('#pdf-position').text(`${response.data.position}`);
+axios.get(`/api/employees/?code=${code}`)
+  .then((response) => {
+    $('.badge-img').attr('src', `./assets/images/employees/${response.data.code}.png`);
+    $('#pdf-name').text(`${response.data.first_name} ${response.data.last_name}`);
+    $('#pdf-position').text(`${response.data.position}`);
+  });
 
-      // const canvasPic = $('#pdf-qrcode');
-      var { code } = response.data.code;
+  $(document).on('click', '#return', function (event) {
+    axios.get(`/api/employees/?code=${code}`)
+    .then((response) => {
+      window.location = `/profile?code=${response.data.id}`;
     });
-}
-getEmployeeData();
+  });
