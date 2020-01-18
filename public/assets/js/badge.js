@@ -46,6 +46,11 @@
 
 // ================== BADGE GENERATOR ==================
 
+
+
+
+
+
 const opts = {
   errorCorrectionLevel: 'H',
   type: 'image/jpeg',
@@ -66,9 +71,8 @@ QRCode.toDataURL("test", opts, (err, url) => {
 
 
 function getEmployeeData() {
-  // need to set ID = id of employee whose profile is being viewed
-  const id = $('#viewProfileBtn').attr('data-id');
-  // console.log("this.att('data-id')", id);
+  const id = document.location.search.replace(/^.*?\=/,'');
+  console.log('got the employee id as:' + id)
   axios.get(`/api/employees/?id=${id}`)
     .then((response) => {
       console.log('makePDF response', response);
