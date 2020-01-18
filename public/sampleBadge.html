@@ -19,7 +19,7 @@
       <div class="flex mb-4">
 
         <div class="w-1/2 h-12 justify-center mt-6">
-          <img class="badge-img ml-6" src="./assets/images/badge_example.jpg">
+          <img class="badge-img ml-6">
         </div>
 
         <div class="w-1/2 h-12 text-white text-left pl-3 mt-2">
@@ -27,17 +27,36 @@
           <h4 id="pdf-position"></h4>
           <canvas id="canvas" class="qrcode-image"></canvas>
           <div class="output"><img id="photo"></div>
-          <!--  <div id="pdf-qrcode"></div> --> 
+          <!--  <div id="pdf-qrcode"></div> -->
         </div>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="assets/js/qrcode.min.js"></script>
-    <script src="assets/js/qrcode.tosjis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
-    <script src="assets/js/badge.js"></script>
+    
+
+
+  </div>
+  <br>
+  <br>
+  <div id="btnDiv" >
+    <button id="return">
+      <div>
+        <a href="#"
+          class="cursor-pointer bg-blue-600 hover:bg-blue-500 shadow-xl text-center px-5 py-2 inline-block text-blue-100 hover:text-white rounded">
+          Return To Profile
+        </a>
+      </div>
+    </button>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="assets/js/qrcode.min.js"></script>
+  <script src="assets/js/qrcode.tosjis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+  <script src="assets/js/badge.js"></script>
 
 </body>
 

@@ -1,18 +1,23 @@
-id = document.location.search.replace(/^.*?\=/, '');
-console.log(id)
+const id = document.location.search.replace(/^.*?\=/, '');
 
 $(document).on('click', '#make-new-id-button', function (event) {
-  window.location = `/sampleBadge?id=${id}`;
+  axios.get(`/api/employees/?id=${id}`)
+  .then((response) => {
+    window.location = `/sampleBadge?code=${response.data.code}`;
+  });
 });
 
 const displayEmployeeData = function () {
   axios.get(`/api/employees/?id=${id}`)
     .then((response) => {
-      console.log("response", response.data);
-      $('#employee-name').append(` ${response.data.first_name} ${response.data.last_name}`);
-      $('#employee-position').append(` ${response.data.position}`);      
-      $('#hire-date').append(` ${response.data.hire_date}`);
-      $('#accrued-time').append(` ${response.data.vacation_time} Hours`);
+
+      hireDate = moment(new Date(response.data.hire_date)).format('MMMM Do YYYY')
+
+      $('#profile-pic').attr('src',`./assets/images/employees/${response.data.code}.png`)
+      $('#name').text(` ${response.data.first_name} ${response.data.last_name}`);
+      $('#employee-position').text(` ${response.data.position}`);      
+      $('#hire-date').text(` ${hireDate}`);
+      $('#accrued-time').text(` ${response.data.vacation_time} Hours`);
     });
 };
 
