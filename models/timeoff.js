@@ -1,11 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const timeoff = sequelize.define('timeoff', {
-    // id: {
-    //   type: DataTypes.UUID,
-    //   primaryKey: true,
-    //   defaultValue: DataTypes.UUIDV4,
-    //   allowNull: false,
-    // },
     employee_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -26,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {
-    underscored: true
+    underscored: true,
   });
 
   return timeoff;
