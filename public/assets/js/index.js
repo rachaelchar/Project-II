@@ -87,6 +87,5 @@ updateEmployees();
 
 $(document).on('click', '#viewProfileBtn', function (event) {
   const id = $(this).data('id');
-  console.log("ID = ", id);
-  window.location = '/profile';
+  window.location = `/profile?id=${id}`;
 });
