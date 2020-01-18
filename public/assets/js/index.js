@@ -13,6 +13,7 @@ $('#badScanForm').on('submit', (event) => {
       const clockinInfo = {
         id: user.id,
         working_status_id: user.working_status_id,
+        status: user.working_status.status,
         time: moment().format('HH:MM:SS'),
         week_num: moment(moment().format('L'), 'MM/DD/YYYY').week(),
         year: moment().format('YYYY-MM-DD'),
@@ -20,19 +21,28 @@ $('#badScanForm').on('submit', (event) => {
       return clockinInfo;
     })
     .then((response) => {
+      
       if (response === false) {
         return response;
       }
-
+      
+      const cell = $(`#${response.id}`);
       let newStatus = 2;
       if (response.working_status_id === 2 || response.working_status_id === 3) {
         newStatus = 1;
+        cell[0].innerText = 'Clocked-Out'
+        cell.removeClass('clockedout').addClass('clockedin');
+        cell.text("Clocked-In");
       }
+      else{
+        cell.removeClass('clockedin').addClass('clockedout');
+        cell.text("Clocked-Out");
+      }
+      
       axios.put('/api/employees/clockin', {
         id: response.id,
         working_status_id: newStatus,
       });
-      updateEmployees();
     })
     .catch((err) => {
       throw (err);
@@ -62,12 +72,12 @@ const updateEmployees = function () {
       response.data.forEach((employee) => {
         if (employee.working_status.id === 1) {
           status = employee.working_status.status;
-          color = 'green';
+          clocked = 'clockedin';
         } else {
           status = employee.working_status.status;
-          color = 'red';
+          clocked = 'clockedout';
         }
-        status = $table.append(`<tr><td class="border px-4 py-2">${employee.first_name} ${employee.last_name}</td><td class="border px-4 py-2" style="background-color: ${color};">${status}</td><td class="border px-4 py-2"><button data-id="${employee.id}" id="viewProfileBtn"class="justify-center bg-blue-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border">View</button></td></tr>`);
+        status = $table.append(`<tr><td class="border px-4 py-2">${employee.first_name} ${employee.last_name}</td><td class="border px-4 py-2 ${clocked}" id="${employee.id}">${status}</td><td class="border px-4 py-2"><button data-id="${employee.id}" id="viewProfileBtn"class="justify-center bg-blue-500 hover:bg-gray-600 text-white font-bold py-2 px-4 border">View</button></td></tr>`);
       });
     });
 };
