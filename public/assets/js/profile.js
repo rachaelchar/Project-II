@@ -10,9 +10,10 @@ const displayEmployeeData = function () {
     .then((response) => {
       console.log("response", response.data);
       $('#employee-name').append(` ${response.data.first_name} ${response.data.last_name}`);
-      $('#employee-position').append(` ${response.data.position}`);
+      $('#employee-position').append(` ${response.data.position}`);      
       $('#hire-date').append(` ${response.data.hire_date}`);
       $('#accrued-time').append(` ${response.data.vacation_time} Hours`);
     });
 };
+
 displayEmployeeData();
