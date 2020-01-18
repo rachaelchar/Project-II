@@ -43,8 +43,8 @@
 //   console.log('newEmployeeCode =', newEmployeeCode);
 // };
 
-// ================== PDF GENERATOR ==================
 
+// ================== BADGE GENERATOR ==================
 
 const opts = {
   errorCorrectionLevel: 'H',
@@ -66,7 +66,9 @@ QRCode.toDataURL("test", opts, (err, url) => {
 
 
 function getEmployeeData() {
-  const id = 3;
+  // need to set ID = id of employee whose profile is being viewed
+  const id = $('#viewProfileBtn').attr('data-id');
+  // console.log("this.att('data-id')", id);
   axios.get(`/api/employees/?id=${id}`)
     .then((response) => {
       console.log('makePDF response', response);
