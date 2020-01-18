@@ -46,6 +46,11 @@
 // ================== PDF GENERATOR ==================
 
 
+
+
+
+
+
 const opts = {
   errorCorrectionLevel: 'H',
   type: 'image/jpeg',
@@ -66,7 +71,8 @@ QRCode.toDataURL("test", opts, (err, url) => {
 
 
 function getEmployeeData() {
-  const id = 3;
+  const id = document.location.search.replace(/^.*?\=/,'');
+  console.log('got the employee id as:' + id)
   axios.get(`/api/employees/?id=${id}`)
     .then((response) => {
       console.log('makePDF response', response);
