@@ -3,14 +3,23 @@ This app is designed to assist businesses in the management of their employee's 
 
 Similar programs to this include Kronos, Autotime, Monday, etc.
 
+## Project Link
+[Invengeon Employee Management System](https://invengeonemployeemanagement.herokuapp.com/)
+
+
 ## **How to Use This App**
 * From the Home Page the user can scan their QR Code to open their profile page or to open the admin page if they are given authorization.
 Admins can use the two buttons in the side bar to register new employees and to print last weeks hours.
+
+  ![Home Page](/Example/Pictures/EMS_index.png)
 
 * From the Profile Page the user can view their name, position, hire date and accrued time. 
 They can also view the current weeks hours and the current weeks clock in and out times. 
 Additionally there are buttons that they can utilize to request time off, see their clock ins and clock outs from all weeks, and request a new id from the administrator.
 If the Logo is clicked it will bring them back to the home page.
+
+  ![Profile Page](/Example/Pictures/EMS_profile.png)
+
 
 *From the Admin Page the admin can enter in the first name, last name and position of the employee they are administering. 
 They can also take a picture of the employee and generate a unique QR code that the employee can utilize to clock in or out and to view their profile.
